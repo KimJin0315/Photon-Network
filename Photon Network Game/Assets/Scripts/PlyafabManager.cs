@@ -22,6 +22,17 @@ public class PlyafabManager : MonoBehaviourPunCallbacks
         PhotonNetwork.ConnectUsingSettings();
     }
 
+    public override void OnConnectedToMaster()
+    {
+        // JoinLobby : 특정 로비를 생성하여 진입하는 함수
+        PhotonNetwork.JoinLobby();
+    }
+
+    public override void OnJoinedLobby()
+    {
+        PhotonNetwork.LoadLevel("Lobby");
+    }
+
     public void Access()
     {
         var request = new LoginWithEmailAddressRequest

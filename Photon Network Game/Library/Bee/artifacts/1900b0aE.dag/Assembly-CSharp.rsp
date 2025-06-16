@@ -384,6 +384,7 @@
 "Assets/Photon/PhotonChat/Demos/DemoChat/IgnoreUiRaycastWhenInactive.cs"
 "Assets/Photon/PhotonChat/Demos/DemoChat/NamePickGui.cs"
 "Assets/Photon/PhotonRealtime/Demos/DemoLoadBalancing/ConnectAndJoinRandomLb.cs"
+"Assets/Scripts/LobbyManager.cs"
 "Assets/Scripts/PlyafabManager.cs"
 -langversion:9.0
 /deterministic
