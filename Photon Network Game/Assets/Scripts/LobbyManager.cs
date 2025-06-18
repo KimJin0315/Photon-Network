@@ -49,6 +49,23 @@ public class LobbyManager : MonoBehaviourPunCallbacks
             // 룸의 정보가 변경되는 경우
             else
             {
+                // 룸이 처음 생성되는 경우
+                if(dictionary.ContainsKey(room.Name) == false)
+                {
+                    GameObject clone = Instantiate(Resources.Load<GameObject>("Room"), parentTransform);
+
+                    clone.GetComponent<Information>().Details(room.Name, room.PlayerCount, room.MaxPlayers);
+
+                    dictionary.Add(room.Name, clone);
+                }
+
+                // 룸이 갱신되었을 때
+                else
+                {
+                    dictionary.TryGetValue(room.Name, out prefab);
+
+                    prefab.GetComponent<Information>().Details(room.Name, room.PlayerCount, room.MaxPlayers);
+                }
 
             }
             
