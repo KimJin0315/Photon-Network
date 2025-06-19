@@ -204,6 +204,7 @@ GameObject:
   - component: {fileID: 9063911971003431076}
   - component: {fileID: 4100937994778397079}
   - component: {fileID: 6776625804725677822}
+  - component: {fileID: 8431510222691845329}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -240,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
+  ObservedComponentsFoldoutOpen: 0
   Group: 0
   prefixField: -1
   Synchronization: 3
@@ -276,6 +277,22 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8431510222691845329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662391261249708499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0be7adffa9f10fb45a41dff752882e62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: {x: 0, y: 0, z: 0}
+  virtualCamera: {fileID: 4626748465324264685}
+  characterController: {fileID: 0}
+  speed: 5
 --- !u!1 &704155517459225552
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,8 +720,8 @@ GameObject:
   - component: {fileID: 4626748465324264685}
   - component: {fileID: 1835810004885730860}
   m_Layer: 0
-  m_Name: Main Camera
-  m_TagString: MainCamera
+  m_Name: Virtual Camera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
