@@ -3,11 +3,14 @@ using UnityEngine;
 
 public class Character : MonoBehaviourPun
 {
+    [SerializeField] float speed;
+    [SerializeField] float mouseX;
+    [SerializeField] float rotationSpeed;
+
     [SerializeField] Vector3 direction;
 
     [SerializeField] Camera virtualCamera;
     [SerializeField] CharacterController characterController;
-    [SerializeField] float speed;
 
     private void Awake()
     {
@@ -25,22 +28,35 @@ public class Character : MonoBehaviourPun
             Control();
 
             Move();
+
+            Rotate();
         }
 
     }
 
     public void Control()
     {
-         direction.x = Input.GetAxisRaw("Horizontal");
-         direction.z = Input.GetAxisRaw("Vertical");
+        direction.x = Input.GetAxisRaw("Horizontal");
+        direction.z = Input.GetAxisRaw("Vertical");
 
-         direction.Normalize();
+        direction.Normalize();
+
+        // mouseX에 마우스로 입력한 값을 저장합니다.
+        mouseX += Input.GetAxisRaw("Mouse X") * rotationSpeed * Time.deltaTime;
     }
 
     public void Move()
     {
         // 방향 * 속도 * 시간
-        characterController.Move(direction * speed * Time.deltaTime);
+        characterController.Move(characterController.transform.TransformDirection(direction) * speed * Time.deltaTime);
+    }
+
+    public void Rotate()
+    {
+        transform.eulerAngles = new Vector3(0, mouseX, 0);
+
+        transform.Rotate(new Vector3(0,0,0));
+
     }
 
     public void DisableCamera()
@@ -53,6 +69,8 @@ public class Character : MonoBehaviourPun
         else
         {
             virtualCamera.gameObject.SetActive(false);
+
+            virtualCamera.GetComponent<AudioListener>().enabled = false;
         }
     }
 }
