@@ -388,6 +388,7 @@
 "Assets/Scripts/CharacterManager.cs"
 "Assets/Scripts/Information.cs"
 "Assets/Scripts/LobbyManager.cs"
+"Assets/Scripts/Mouse.cs"
 "Assets/Scripts/PlyafabManager.cs"
 -langversion:9.0
 /deterministic

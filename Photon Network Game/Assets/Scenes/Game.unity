@@ -472,7 +472,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d082e816eef3fc74f949217d33926947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0, z: 0}
+  transformList:
+  - {fileID: 1121789339}
+  - {fileID: 734920796}
+  - {fileID: 1697034886}
+  - {fileID: 914835145}
 --- !u!4 &626517478
 Transform:
   m_ObjectHideFlags: 0
@@ -680,7 +684,7 @@ GameObject:
   m_Component:
   - component: {fileID: 914835145}
   m_Layer: 0
-  m_Name: Forth Position
+  m_Name: Fourth Position
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
