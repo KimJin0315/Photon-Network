@@ -674,6 +674,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8435225891291756128, guid: 288bff42e8e9b5a42bf0557e4e230fa0, type: 3}
   m_PrefabInstance: {fileID: 838944593}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &843048366
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 843048368}
+  - component: {fileID: 843048367}
+  m_Layer: 0
+  m_Name: Game Manger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &843048367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843048366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 070d4509316df3345beade97d2e762e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &843048368
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843048366}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.578142, y: -38.543606, z: -30.852512}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &914835144
 GameObject:
   m_ObjectHideFlags: 0
@@ -1189,3 +1233,4 @@ SceneRoots:
   - {fileID: 838944593}
   - {fileID: 1794488252}
   - {fileID: 589912691}
+  - {fileID: 843048368}
