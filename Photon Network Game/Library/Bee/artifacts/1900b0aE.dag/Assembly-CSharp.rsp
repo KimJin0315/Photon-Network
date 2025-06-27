@@ -391,6 +391,7 @@
 "Assets/Scripts/Head.cs"
 "Assets/Scripts/Information.cs"
 "Assets/Scripts/LobbyManager.cs"
+"Assets/Scripts/MasterManager.cs"
 "Assets/Scripts/Mouse.cs"
 "Assets/Scripts/PlyafabManager.cs"
 -langversion:9.0
