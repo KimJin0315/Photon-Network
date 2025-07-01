@@ -387,13 +387,16 @@
 "Assets/Scripts/Character.cs"
 "Assets/Scripts/CharacterManager.cs"
 "Assets/Scripts/DialogManager.cs"
+"Assets/Scripts/Failure.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/Head.cs"
+"Assets/Scripts/Identifier.cs"
 "Assets/Scripts/Information.cs"
 "Assets/Scripts/LobbyManager.cs"
 "Assets/Scripts/MasterManager.cs"
 "Assets/Scripts/Mouse.cs"
 "Assets/Scripts/PlyafabManager.cs"
+"Assets/Scripts/ProfileManager.cs"
 -langversion:9.0
 /deterministic
 /optimize+
