@@ -600,7 +600,7 @@ GameObject:
   - component: {fileID: 690383071}
   - component: {fileID: 690383070}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: Content Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -647,10 +647,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 60
+    m_FontSize: 50
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 0
     m_MaxSize: 60
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -660,11 +660,11 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Invalid input parameters
 
-    
+
 
     Email : Email address is not valid.
 
-    
+
 
     Password
     : Password must be between 6 and 100
@@ -1187,6 +1187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 0.1
+  failurePanel: {fileID: 1683777359}
   emailInputField: {fileID: 685005662}
   passwordInputField: {fileID: 431608822}
 --- !u!1 &1496274272
@@ -1294,17 +1295,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1537690957}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1982979305}
-  m_Father: {fileID: 2140341949}
+  m_Father: {fileID: 1683777360}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 100}
+  m_AnchoredPosition: {x: 0, y: 140}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1537690959
@@ -1350,7 +1351,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1537690960}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1683777363}
+        m_TargetAssemblyTypeName: Failure, Assembly-CSharp
+        m_MethodName: Confirm
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1537690960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1468,13 +1481,14 @@ GameObject:
   - component: {fileID: 1683777360}
   - component: {fileID: 1683777362}
   - component: {fileID: 1683777361}
+  - component: {fileID: 1683777363}
   m_Layer: 5
   m_Name: Failure Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1683777360
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1488,6 +1502,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2140341949}
+  - {fileID: 1537690958}
   m_Father: {fileID: 2071528198}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1508,7 +1523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.8784314}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1533,6 +1548,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1683777359}
   m_CullTransparentMesh: 1
+--- !u!114 &1683777363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683777359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb8af3bea57ac2641ad77f32b6c491d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contentText: {fileID: 690383070}
 --- !u!1 &1786588244
 GameObject:
   m_ObjectHideFlags: 0
@@ -1938,7 +1966,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1537690958}
   - {fileID: 690383069}
   m_Father: {fileID: 1683777360}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

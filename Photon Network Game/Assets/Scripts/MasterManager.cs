@@ -3,9 +3,11 @@ using Photon.Realtime;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneTemplate;
 
 public class MasterManager : MonoBehaviourPunCallbacks
 {
+    [SerializeField] GameObject clone;
     [SerializeField] Vector3 direction;
     [SerializeField] WaitForSeconds waitForSeconds = new WaitForSeconds(5.0f);
     void Start()
@@ -19,9 +21,17 @@ public class MasterManager : MonoBehaviourPunCallbacks
     {
         while(true)
         {
+            
             if (PhotonNetwork.CurrentRoom != null)
             {
-                PhotonNetwork.InstantiateRoomObject("Unit", direction, Quaternion.identity);
+                if (clone == null)
+                {
+                    clone = PhotonNetwork.InstantiateRoomObject("Unit", direction, Quaternion.identity);
+                }
+                else
+                {
+                    yield break;
+                }
             }
 
             yield return waitForSeconds;
