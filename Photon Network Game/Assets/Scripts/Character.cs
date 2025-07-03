@@ -84,8 +84,13 @@ public class Character : MonoBehaviourPun
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Authorized"))
-        { 
-            PhotonNetwork.Destroy(other.gameObject);
+        {
+            PhotonView clone = other.GetComponent<PhotonView>();
+
+            if (photonView.IsMine)
+            {
+                PhotonNetwork.Destroy(other.gameObject);
+            }
         }
     }
 }
