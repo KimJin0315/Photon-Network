@@ -12,12 +12,19 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     [SerializeField] Dictionary<string, GameObject> dictionary = new Dictionary<string, GameObject>();
 
 
+    public override void OnConnectedToMaster()
+    {
+        if (PhotonNetwork.InLobby == false)
+        {
+            PhotonNetwork.JoinLobby();
+        }
+    }
 
     public void OnCreateRoom()
     {
         RoomOptions roomOptions = new RoomOptions();
 
-        roomOptions.MaxPlayers = 4;
+        roomOptions.MaxPlayers = 3;
 
         roomOptions.IsOpen = true;
 

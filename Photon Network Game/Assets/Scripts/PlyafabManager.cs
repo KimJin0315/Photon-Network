@@ -3,6 +3,7 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 using PlayFab.ClientModels;
+using System.Collections;
 
 public class PlyafabManager : MonoBehaviourPunCallbacks
 {
@@ -18,12 +19,21 @@ public class PlyafabManager : MonoBehaviourPunCallbacks
 
         PhotonNetwork.GameVersion = version;
 
-        PhotonNetwork.ConnectUsingSettings();
+        StartCoroutine(Connect());
     }
 
-    public override void OnConnectedToMaster()
+    IEnumerator Connect()
     {
-        // JoinLobby : 특정 로비를 생성하여 진입하는 함수
+        // Name Server 에서 자동으로 Master Server로 연결
+        PhotonNetwork.ConnectUsingSettings();
+
+        // 서버 연결이 완료되거나 시간 초과될 때 까지 대기
+        while(PhotonNetwork.IsConnectedAndReady == false)
+        {
+            yield return null;
+        }
+
+        // 특정 로비를 생성하여 진입하는 함수
         PhotonNetwork.JoinLobby();
     }
 

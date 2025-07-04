@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] double time;
-    [SerializeField] double intializeTime;
+    [SerializeField] double initializeTime;
 
     [SerializeField] int minute;
     [SerializeField] int second;
@@ -20,9 +20,24 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     void Start()
     {
-        SetMouse(false);
+        if (photonView.IsMine)
+        {
+            SetMouse(false);
+        }
 
-        intializeTime = PhotonNetwork.Time;
+        if (PhotonNetwork.IsMasterClient)
+        {
+            initializeTime = PhotonNetwork.Time;
+
+            photonView.RPC("InitializeTime", RpcTarget.AllBuffered, initializeTime);
+        }
+    }
+
+    [PunRPC]
+
+    void InitializeTime(double time)
+    {
+        initializeTime = time;
     }
 
     public void SetMouse(bool state)
@@ -35,10 +50,20 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        if (PhotonNetwork.CurrentRoom.PlayerCount >= PhotonNetwork.CurrentRoom.MaxPlayers)
+        {
+            Debug.Log("S T A R T");
+
+            PhotonNetwork.CurrentRoom.IsOpen = false;
+        }
+    }
+
     void Update()
     {
    
-        time = PhotonNetwork.Time - intializeTime;
+        time = PhotonNetwork.Time - initializeTime;
 
         minute = (int)time / 60;
         second = (int)time % 60;
@@ -80,7 +105,10 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     private void OnDestroy()
     {
-        SetMouse(true);
+        if (photonView.IsMine)
+        {
+            SetMouse(true);
+        }
     }
 }
 

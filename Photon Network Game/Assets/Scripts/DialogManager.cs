@@ -19,10 +19,12 @@ public class DialogManager : MonoBehaviourPunCallbacks
                 return;
             }
 
+            string talk = PhotonNetwork.LocalPlayer.NickName + " : " + inputField.text; 
+
             // RPC Target.All : 현재 룸에 있는 모든 클라이언트에게 Talk() 함수를
             //                  실행하라고 명령을 전달합니다.
 
-            photonView.RPC("Talk", RpcTarget.All, inputField.text);
+            photonView.RPC("Talk", RpcTarget.All, talk);
 
             inputField.text = "";
 
